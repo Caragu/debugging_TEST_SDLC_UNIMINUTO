@@ -1,0 +1,5 @@
+security_tests.SecurityTests.test_seguridad
+==
+log
+get
+assertEqual

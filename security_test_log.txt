@@ -1,0 +1,4 @@
+Prueba de seguridad: Intento de acceso no autorizado a '/admin'
+Prueba de seguridad: Intento de acceso no autorizado a '/admin'
+Prueba de seguridad: Intento de acceso no autorizado a '/admin'
+Prueba de seguridad: Intento de acceso no autorizado a '/admin'

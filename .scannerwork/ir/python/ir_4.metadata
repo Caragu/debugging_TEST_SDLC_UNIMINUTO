@@ -1,0 +1,5 @@
+functional_tests.FunctionalTests.test_index_page
+==
+log
+get
+assertEqual

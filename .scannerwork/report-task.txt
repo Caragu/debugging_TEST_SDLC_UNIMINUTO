@@ -1,0 +1,7 @@
+organization=uni-minuto-devops
+projectKey=uni-minuto-devops_sample-project
+serverUrl=https://sonarcloud.io
+serverVersion=8.0.0.47838
+dashboardUrl=https://sonarcloud.io/dashboard?id=uni-minuto-devops_sample-project
+ceTaskId=AYtZ_TS9xCN1PDKDa73K
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AYtZ_TS9xCN1PDKDa73K

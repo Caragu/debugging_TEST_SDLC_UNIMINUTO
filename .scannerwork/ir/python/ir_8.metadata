@@ -1,0 +1,5 @@
+test.TestApp.test_index_page
+==
+log
+get
+assertEqual

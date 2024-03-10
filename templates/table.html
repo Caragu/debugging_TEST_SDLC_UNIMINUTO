@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tabla de Personas Registradas</title>
+</head>
+<body>
+    <h1>Tabla de Personas Registradas</h1>
+    <table border="1">
+        <tr>
+            <th>Nombre</th>
+            <th>País</th>
+        </tr>
+        {% for persona in personas %}
+        <tr>
+            <td>{{ persona.nombre }}</td>
+            <td>{{ persona.pais }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

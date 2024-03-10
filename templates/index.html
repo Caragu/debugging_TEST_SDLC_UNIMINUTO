@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registro de Personas</title>
+    <style>
+        table {
+            font-family: Arial, sans-serif;
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px auto;  /* Centrar la tabla */
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .form-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .form-container input[type="text"] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            text-transform: uppercase; /* Convertir a mayúsculas */
+        }
+
+        .form-container select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-container input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .form-container input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        /* Estilo para los botones de Acciones */
+        .action-buttons {
+            display: flex;
+        }
+
+        .action-buttons button {
+            background-color: #008CBA;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 5px;
+            padding: 5px 10px;
+        }
+
+        .action-buttons button:hover {
+            background-color: #006799;
+        }
+    </style>
+</head>
+<body>
+    <h1>Registro de Personas</h1>
+    <div class="form-container">
+        <form method="post" action="/registrar">
+            <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
+            <br>
+            <select id="pais" name="pais" required>
+                <option value="" disabled selected>Selecciona un país</option>
+                <!-- Opciones de países se cargarán aquí -->
+            </select>
+            <br>
+            <input type="submit" value="Registrar">
+        </form>
+    </div>
+    <h2>Personas Registradas:</h2>
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>País</th>
+            <th>Acciones</th>  <!-- Columna para botones de acciones -->
+        </tr>
+        {% for persona in personas %}
+        <tr>
+            <td>{{ persona.nombre }}</td>
+            <td>{{ persona.pais }}</td>
+            <td class="action-buttons">
+                <button><a href="/modificar/{{ loop.index0 }}" style="text-decoration: none; color: white;">Modificar</a></button>
+                <button><a href="/eliminar/{{ loop.index0 }}" style="text-decoration: none; color: white;">Eliminar</a></button>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <script>
+        fetch('https://restcountries.com/v3.1/all')
+        .then(response => response.json())
+        .then(data => {
+            const select = document.getElementById('pais');
+            data.forEach(country => {
+                const option = document.createElement('option');
+                option.value = country.name.common;
+                option.text = country.name.common;
+                select.appendChild(option);
+            });
+        })
+        .catch(error => console.error('Error al cargar los países: ', error));
+    </script>
+</body>
+</html>

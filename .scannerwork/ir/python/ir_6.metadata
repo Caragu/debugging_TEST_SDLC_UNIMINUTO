@@ -1,0 +1,4 @@
+unit_tests.UnitTests.test_registrar_persona
+==
+log
+assertEqual
